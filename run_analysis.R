@@ -29,7 +29,7 @@ colnames(x_total)   <- sel_features[,2]
 colnames(y_total)   <- "activity"
 colnames(sub_total) <- "subject"
 
-
+#FINAL
 totals <- cbind(sub_total, y_total, x_total)
-total_mean <- total %>% group_by(activity, subject) %>% summarize_all(funs(mean)) 
-write.table(total_mean, file = "./tidydata.txt", row.names = FALSE, col.names = TRUE)
+total_mean <- totals %>% group_by(activity, subject) %>% summarize_all(funs(mean)) 
+write.table(total_mean, file = "./data.txt", row.names = FALSE, col.names = TRUE)
